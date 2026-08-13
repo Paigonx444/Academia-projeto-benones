@@ -18,24 +18,24 @@
 
 <body>
     <h1>Cadastrar Aluno</h1>
-    <form id="formVendaCombustivel">
+    <form id="formCadastroAluno">
         <label>Nome do Aluno:</label>
         <input type="text" id="nome_aluno" name="nome_aluno">
         <br><br>
         <label>Idade:</label>
-        <input type="number" id="preco" name="preco" step="0.01" min="0" max="99999.99">
+        <input type="number" id="idade_aluno" name="idade" step="0.01" min="0" max="99999.99">
         <br><br>
         <label>CPF:</label>
-        <input type="number" id="volume_abastecido" name="volume_abastecido" step="0.01" min="0" max="99999.99">
+        <input type="number" id="cpf_aluno" name="cpf" step="0.01" min="0" max="999999999999">
         <br><br>
         <label>Data Cadastro:</label>
-        <input type="date" id="data_abastecimento" name="data_abastecimento">
+        <input type="date" id="data_cadastro" name="data_cadastro">
         <br><br>
         <button type="submit">Cadastrar</button>
     </form>
     <div id="message"></div>
 
-    <script src="criarVendaCombustivel.js"></script>
+    <script src="cadastrarAluno.js"></script>
 </body>
 
 </html>
