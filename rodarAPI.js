@@ -9,22 +9,22 @@ app.use(express.json());
 app.use(express.static('.'));
 
 // Criar vendas de combustível
-app.post('/vendaCombustivel', (req, res) => {
-    const { tipo_combustivel, preco, volume_abastecido, data_abastecimento } = req.body;
+app.post('/cadastrarAluno', (req, res) => {
+    const { nome_aluno, idade_aluno, cpf_aluno, data_cadastro  } = req.body;
 
-    const codigoDoMySQL = 'INSERT INTO postos_de_gasolina (tipo_combustivel, preco, volume_abastecido, data_abastecimento) VALUES (?, ?, ?, ?)';
+    const codigoDoMySQL = 'INSERT INTO academia (nome_aluno, idade_aluno, cpf_aluno, data_cadastro ) VALUES (?, ?, ?, ?)';
 
-    acessaBancoNoServidor.query(codigoDoMySQL, [tipo_combustivel, preco, volume_abastecido, data_abastecimento], (err, results) => {
+    acessaBancoNoServidor.query(codigoDoMySQL, [nome_aluno, idade_aluno, cpf_aluno, data_cadastro], (err, results) => {
         if (err) {
             return res.json({ error: 'Erro ao cadastrar' });
         }
-        res.json({ message: 'Venda de combustível cadastrada!' });
+        res.json({ message: 'Aluno Cadastrado!' });
     });
 });
 
 // Listar vendas de combustível
-app.get('/vendaCombustivel', (req, res) => {
-    const codigoDoMySQL = 'SELECT * FROM postos_de_gasolina';
+app.get('/cadastrarAluno', (req, res) => {
+    const codigoDoMySQL = 'SELECT * FROM academia';
 
     acessaBancoNoServidor.query(codigoDoMySQL, (err, results) => {
         if (err) {
