@@ -7,10 +7,10 @@ async function listarTodos() {
     respostaObtida.forEach(cadastrarAluno => {
         html += `<tr>
         <td>${cadastrarAluno.id}</td>
-        <td>${vendaCombustivel.nome_aluno}</td>
-        <td>${vendaCombustivel.idade_aluno}</td>
-        <td>${vendaCombustivel.cpf_aluno}</td>
-        <td>${vendaCombustivel.data_cadastro}</td>
+        <td>${cadastrarAluno.nome_aluno}</td>
+        <td>${cadastrarAluno.idade_aluno}</td>
+        <td>${cadastrarAluno.cpf_aluno}</td>
+        <td>${cadastrarAluno.data_cadastro}</td>
         </tr>`;
     });
 

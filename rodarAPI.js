@@ -23,8 +23,8 @@ app.post('/cadastrarAluno', (req, res) => {
 });
 
 // Listar vendas de combustível
-app.get('/vendaCombustivel', (req, res) => {
-    const codigoDoMySQL = 'SELECT * FROM postos_de_gasolina';
+app.get('/cadastrarAluno', (req, res) => {
+    const codigoDoMySQL = 'SELECT * FROM academia';
 
     acessaBancoNoServidor.query(codigoDoMySQL, (err, results) => {
         if (err) {

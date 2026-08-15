@@ -6,7 +6,8 @@ const acessaBancoNoServidor = mysql.createConnection({
     port: 3306,
     user: 'alunos',
     password: 'senhaAlunos',
-    database: 'alunos_piets' // Ajuste o nome do banco de dados conforme necessário
+    database: 'alunos_piets',
+    connectTimeout: 20000 // Ajuste o nome do banco de dados conforme necessário
 })
 
 // Conectar ao banco de dados
