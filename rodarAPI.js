@@ -22,7 +22,7 @@ app.post('/cadastrarAluno', (req, res) => {
     });
 });
 
-// Listar vendas de combustível
+// Listar cadastro de Alunos
 app.get('/cadastrarAluno', (req, res) => {
     const codigoDoMySQL = 'SELECT * FROM academia';
 
@@ -35,40 +35,40 @@ app.get('/cadastrarAluno', (req, res) => {
 });
 
 // Deletar venda de combustível
-app.delete('/vendaCombustivel/:id', (req, res) => {
+app.delete('/cadastrarAluno/:id', (req, res) => {
     const id = req.params.id;
-    const codigoDoMySQL = 'DELETE FROM postos_de_gasolina WHERE id = ?';
+    const codigoDoMySQL = 'DELETE FROM academia WHERE id = ?';
 
     acessaBancoNoServidor.query(codigoDoMySQL, [id], (err, result) => {
         if (err) {
-            return res.status(500).json({ error: 'Erro ao deletar venda' });
+            return res.status(500).json({ error: 'Erro ao deletar cadastro' });
         }
 
         if (result.affectedRows === 0) {
-            return res.status(404).json({ error: 'Venda não encontrada' });
+            return res.status(404).json({ error: 'Cadastro não encontrado' });
         }
 
-        res.json({ message: 'Venda excluída com sucesso!' });
+        res.json({ message: 'Cadastro excluído com sucesso!' });
     });
 });
 
 // Atualizar venda de combustível
-app.put('/vendaCombustivel/:id', (req, res) => {
+app.put('/cadastrarAluno/:id', (req, res) => {
     const id = req.params.id;
-    const { tipo_combustivel, preco, volume_abastecido, data_abastecimento } = req.body;
+    const { nome_aluno, idade_aluno, cpf_aluno, data_cadastro } = req.body;
 
-    const codigoDoMySQL = 'UPDATE postos_de_gasolina SET tipo_combustivel = ?, preco = ?, volume_abastecido = ?, data_abastecimento = ? WHERE id = ?';
+    const codigoDoMySQL = 'UPDATE academia SET nome_aluno = ?, idade_aluno, cpf_aluno = ?, data_cadastro = ? WHERE id = ?';
 
-    acessaBancoNoServidor.query(codigoDoMySQL, [tipo_combustivel, preco, volume_abastecido, data_abastecimento, id], (err, result) => {
+    acessaBancoNoServidor.query(codigoDoMySQL, [nome_aluno, idade_aluno, cpf_aluno, data_cadastro, id], (err, result) => {
         if (err) {
-            return res.status(500).json({ error: 'Erro ao atualizar venda' });
+            return res.status(500).json({ error: 'Erro ao atualizar cadastro' });
         }
 
         if (result.affectedRows === 0) {
-            return res.status(404).json({ error: 'Venda não encontrada' });
+            return res.status(404).json({ error: 'Cadastro não encontrado' });
         }
 
-        res.json({ message: 'Venda atualizada com sucesso!' });
+        res.json({ message: 'Cadastro atualizado com sucesso!' });
     });
 });
 

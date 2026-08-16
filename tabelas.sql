@@ -1,6 +1,6 @@
--- Active: 1786650839668@@benserverplex.ddns.net@3306@api_crud
+-- Active: 1786917530242@@benserverplex.ddns.net@3306@alunos_piets
 
-use alunos_piets;
+USE alunos_piets;
 
 CREATE TABLE academia (
     id INT AUTO_INCREMENT PRIMARY KEY,
