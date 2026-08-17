@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('.'));
 
-// Criar vendas de combustível
+// Criar cadastro de Aluno
 app.post('/cadastrarAluno', (req, res) => {
     const { nome_aluno, idade_aluno, cpf_aluno, data_cadastro  } = req.body;
 
@@ -34,7 +34,7 @@ app.get('/cadastrarAluno', (req, res) => {
     });
 });
 
-// Deletar venda de combustível
+// Deletar cadastro de ALuno
 app.delete('/cadastrarAluno/:id', (req, res) => {
     const id = req.params.id;
     const codigoDoMySQL = 'DELETE FROM academia WHERE id = ?';
@@ -52,12 +52,12 @@ app.delete('/cadastrarAluno/:id', (req, res) => {
     });
 });
 
-// Atualizar venda de combustível
+// Atualizar cadastro de Aluno
 app.put('/cadastrarAluno/:id', (req, res) => {
     const id = req.params.id;
     const { nome_aluno, idade_aluno, cpf_aluno, data_cadastro } = req.body;
 
-    const codigoDoMySQL = 'UPDATE academia SET nome_aluno = ?, idade_aluno, cpf_aluno = ?, data_cadastro = ? WHERE id = ?';
+    const codigoDoMySQL = 'UPDATE academia SET nome_aluno = ?, idade_aluno = ?, cpf_aluno = ?, data_cadastro = ? WHERE id = ?';
 
     acessaBancoNoServidor.query(codigoDoMySQL, [nome_aluno, idade_aluno, cpf_aluno, data_cadastro, id], (err, result) => {
         if (err) {
